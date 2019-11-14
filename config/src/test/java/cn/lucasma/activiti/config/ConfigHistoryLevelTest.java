@@ -5,7 +5,6 @@ import org.activiti.engine.history.HistoricActivityInstance;
 import org.activiti.engine.history.HistoricDetail;
 import org.activiti.engine.history.HistoricTaskInstance;
 import org.activiti.engine.history.HistoricVariableInstance;
-import org.activiti.engine.logging.LogMDC;
 import org.activiti.engine.runtime.Execution;
 import org.activiti.engine.runtime.ProcessInstance;
 import org.activiti.engine.task.Task;
@@ -39,13 +38,11 @@ public class ConfigHistoryLevelTest {
     @Deployment(resources = {"cn/lucasma/activiti/my-process.bpmn20.xml"})
     public void test() {
         // 打开 MDC
-
-
         // 启动流程
         startProcessInstance();
 
         // 修改变量
-        changeVaiable();
+        changeVariable();
 
         // 提交表单 task
 
@@ -70,6 +67,7 @@ public class ConfigHistoryLevelTest {
     }
 
     private void showHistoryDetail() {
+        logger.info("-----------------------------输出历史详情------------------------------------");
         List<HistoricDetail> historicDetails = activitiRule.getHistoryService()
                 .createHistoricDetailQuery()
                 .listPage(0, 100);
@@ -81,6 +79,7 @@ public class ConfigHistoryLevelTest {
     }
 
     private void showHistoryForm() {
+        logger.info("-----------------------------输出历史表单------------------------------------");
         List<HistoricDetail> historicDetailsForm = activitiRule.getHistoryService()
                 .createHistoricDetailQuery()
                 .formProperties()
@@ -93,6 +92,7 @@ public class ConfigHistoryLevelTest {
     }
 
     private void showHistoryTask() {
+        logger.info("-----------------------------输出历史用户任务------------------------------------");
         List<HistoricTaskInstance> historicTaskInstances = activitiRule.getHistoryService()
                 .createHistoricTaskInstanceQuery()
                 .listPage(0, 100);
@@ -104,6 +104,7 @@ public class ConfigHistoryLevelTest {
     }
 
     private void showHistoryVariable() {
+        logger.info("-----------------------------输出历史变量------------------------------------");
         List<HistoricVariableInstance> historicVariableInstances = activitiRule.getHistoryService()
                 .createHistoricVariableInstanceQuery()
                 .listPage(0, 100);
@@ -115,6 +116,7 @@ public class ConfigHistoryLevelTest {
     }
 
     private void showHistoryAcvitity() {
+        logger.info("-----------------------------输出历史活动内容------------------------------------");
         List<HistoricActivityInstance> historicActivityInstances = activitiRule.getHistoryService()
                 .createHistoricActivityInstanceQuery()
                 .listPage(0, 100);
@@ -125,6 +127,7 @@ public class ConfigHistoryLevelTest {
     }
 
     private void submitTaskFormData() {
+        logger.info("-----------------------------提交表单------------------------------------");
         Task task = activitiRule.getTaskService().createTaskQuery().singleResult();
         Map<String, String> properties = Maps.newHashMap();
         properties.put("formKey1", "valueF1");
@@ -132,7 +135,8 @@ public class ConfigHistoryLevelTest {
         activitiRule.getFormService().submitTaskFormData(task.getId(), properties);
     }
 
-    private void changeVaiable() {
+    private void changeVariable() {
+        logger.info("-----------------------------修改变量------------------------------------");
         List<Execution> executions = activitiRule.getRuntimeService().createExecutionQuery().listPage(0, 100);
         for (Execution execution : executions) {
             logger.info("execution :{}", execution);
@@ -145,6 +149,7 @@ public class ConfigHistoryLevelTest {
     }
 
     private void startProcessInstance() {
+        logger.info("-----------------------------启动流程------------------------------------");
         Map<String, Object> params = Maps.newHashMap();
         params.put("kyeStart1", "value1");
         params.put("kyeStart2", "value2");
