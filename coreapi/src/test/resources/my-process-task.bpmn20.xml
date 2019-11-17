@@ -12,7 +12,7 @@
 		<sequenceFlow id="flow1" sourceRef="start" targetRef="someTask" />
 
 		<userTask id="someTask" name="Activiti is awesome!"
-				  activiti:candidateUsers="lucas,user1,user2" >
+				  activiti:candidateUsers="chenqiang,user1,user2" >
 			<documentation>some Task ${message}</documentation>
 
 		</userTask>
