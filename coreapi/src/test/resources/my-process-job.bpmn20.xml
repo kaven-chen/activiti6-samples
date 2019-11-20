@@ -10,6 +10,7 @@
 
 		<startEvent id="start" >
 			<timerEventDefinition>
+				<!--重复5次，没十秒执行一次-->
 				<timeCycle>R5/PT10S</timeCycle>
 			</timerEventDefinition>
 
