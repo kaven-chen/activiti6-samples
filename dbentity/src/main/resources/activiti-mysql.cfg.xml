@@ -9,7 +9,6 @@
 
     <property name="dbHistoryUsed" value="true"/>
     <property name="dbIdentityUsed" value="true"/>
-
     <property name="historyLevel" value="FULL"/>
     <property name="enableDatabaseEventLogging" value="true"/>
   </bean>
@@ -18,7 +17,7 @@
     <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
     <property name="url" value="jdbc:mysql://localhost:3306/activiti6unit?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false"/>
     <property name="username" value="root"/>
-    <property name="password" value="rootpwd"/>
+    <property name="password" value=""/>
     <property name="initialSize" value="1"/>
     <property name="maxActive" value="20"/>
     <property name="filters" value="stat,slf4j"/>

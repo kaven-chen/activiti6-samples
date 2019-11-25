@@ -10,7 +10,7 @@
 
 		<startEvent id="start" >
 			<timerEventDefinition>
-				<timeCycle>R5/PT10S</timeCycle>
+				<timeCycle>R3/PT5S</timeCycle>
 			</timerEventDefinition>
 
 		</startEvent>

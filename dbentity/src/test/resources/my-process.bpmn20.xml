@@ -7,8 +7,8 @@
 	expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/test">
 
 	<process id="my-process">
-
-		<startEvent id="start" />
+		<documentation>文档Test</documentation>
+		<startEvent id="start"  activiti:formKey="test/formKey"></startEvent>
 		<sequenceFlow id="flow1" sourceRef="start" targetRef="someTask" />
 		
 		<userTask id="someTask" name="Activiti is awesome!" />

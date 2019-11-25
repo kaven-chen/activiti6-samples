@@ -12,17 +12,16 @@ import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 
-/**
- * @Author Lucas Ma
- */
-public class DbConfigTest {
-    private static final Logger logger = LoggerFactory.getLogger(DbConfigTest.class);
+public class CQ_DbConfigTest {
+
+    private static final Logger logger = LoggerFactory.getLogger(CQ_DbConfigTest.class);
+
 
     @Test
     public void testDbConfig() {
-
         ProcessEngine processEngine = ProcessEngineConfiguration
                 .createProcessEngineConfigurationFromResource("activiti-mysql.cfg.xml")
                 .buildProcessEngine();
@@ -53,4 +52,5 @@ public class DbConfigTest {
             }
         });
     }
+
 }
